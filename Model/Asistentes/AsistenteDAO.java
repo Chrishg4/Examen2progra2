@@ -38,8 +38,18 @@ public class AsistenteDAO extends DaoCRUD<AsistenteDTO> {
 
     @Override
     public AsistenteDTO read(Object id) throws SQLException {
-        
-       
+        stmt = connection.prepareStatement("call AsistentesReadAll()");
+        rs = stmt.executeQuery();
+        List<AsistenteDTO> dtos = new ArrayList();
+        while (rs.next()) {
+            dtos.add(new AsistenteDTO(
+                    rs.getString(1),
+                    rs.getString(2),
+                    rs.getDate(3),
+                    rs.getString(4),
+            ));
+        }
+        return dtos;
     }
 
     @Override
@@ -64,6 +74,5 @@ public class AsistenteDAO extends DaoCRUD<AsistenteDTO> {
         stmt.setString(1, String.valueOf(id));
         return stmt.executeUpdate()>0;
     }
-    
     
 }

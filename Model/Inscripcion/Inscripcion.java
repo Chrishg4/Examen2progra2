@@ -9,5 +9,5 @@ package Model.Inscripcion;
  * @author Student
  */
 public class Inscripcion {
-    
+   
 }

@@ -5,7 +5,7 @@
 package Model.Inscripcion;
 
 import Mapper.Mapper;
-import Model.Asistentes.AsistenteDTO;
+import Utils.UtilDate;
 
 /**
  *
@@ -16,16 +16,27 @@ public class InscripcionMapper implements Mapper<Inscripcion, InscripcionDto> {
     @Override
     public InscripcionDto toDto(Inscripcion ent) {
           return new InscripcionDto(
-                ent.getCedula(),
-                ent.getNombre(),
-                ent.getTelefono(),
-                ent.getCorreo()
+                ent.getId(),
+                ent.getEvento(),
+                ent.getAsistente(),
+                UtilDate.toSqlDate(ent.getFecha()),
+                ent.isAsistencia()
         );
     }
 
     @Override
     public Inscripcion toEntity(InscripcionDto dto) {
-        
+            if (dto == null) {
+            return null;
+        }
+        return new Inscripcion(
+                dto.getId(),
+                dto.getEvento(),
+                dto.getAsistente(),
+                UtilDate.toLocalDate(dto.getFecha()),
+                dto.isAsistencia()
+                
+        );
+    }
     }
     
-}

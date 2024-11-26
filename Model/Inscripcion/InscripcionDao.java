@@ -28,7 +28,7 @@ public class InscripcionDao extends DaoCRUD<InscripcionDto> {
 
     @Override
     public InscripcionDto read(Object id) throws SQLException {
-        stmt = connection.prepareStatement("call CustomerRead(?)");
+        stmt = connection.prepareStatement("call InscripcionRead(?)");
         stmt.setString(1, String.valueOf(id));
         rs = stmt.executeQuery();
         if (rs.next()) {
@@ -45,7 +45,7 @@ public class InscripcionDao extends DaoCRUD<InscripcionDto> {
 
     @Override
     public List<InscripcionDto> readAll() throws SQLException {
-        stmt = connection.prepareStatement("call CustomerReadAll()");
+        stmt = connection.prepareStatement("call InscripcionReadAll()");
         rs = stmt.executeQuery();
         List<InscripcionDto> dtos = new ArrayList();
         while (rs.next()) {
@@ -62,7 +62,7 @@ public class InscripcionDao extends DaoCRUD<InscripcionDto> {
 
     @Override
     public boolean update(InscripcionDto dto) throws SQLException {
-        stmt = connection.prepareStatement("call CustomerUpdate(?,?,?)");
+        stmt = connection.prepareStatement("call InscripcionUpdate(?,?,?)");
         stmt.setInt(1, dto.getId());
         stmt.setBoolean(2, dto.isAsistencia()
         );
@@ -72,7 +72,7 @@ public class InscripcionDao extends DaoCRUD<InscripcionDto> {
 
     @Override
     public boolean delete(Object id) throws SQLException {
-        stmt = connection.prepareStatement("call CustomerDelete(?)");
+        stmt = connection.prepareStatement("call InscripcionDelete(?)");
         stmt.setString(1, String.valueOf(id));
         return stmt.executeUpdate()>0;
     }

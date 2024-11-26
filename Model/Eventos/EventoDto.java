@@ -15,7 +15,7 @@ public class EventoDto {
     private String nombre;
     private Date fecha;
     private String lugar;
-    private static int CAPACIDAD=1000;
+    private  int CAPACIDAD=1000;
 
     public int getId() {
         return id;
@@ -33,17 +33,20 @@ public class EventoDto {
         return lugar;
     }
 
-    public static int getCAPACIDAD() {
+    public int getCAPACIDAD() {
         return CAPACIDAD;
     }
 
-
-    public EventoDto(int id, String nombre, Date fecha, String lugar) {
+    public EventoDto(int id, String nombre, Date fecha, String lugar, int CACPACIDAD) {
         this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
         this.lugar = lugar;
+        this.CAPACIDAD=1000;
     }
+
+    
+   
     
     
     

@@ -66,12 +66,15 @@ public class InscripcionDao extends DaoCRUD<InscripcionDto> {
         stmt.setInt(1, dto.getId());
         stmt.setBoolean(2, dto.isAsistencia()
         );
-        stmt.setString(3, dto.getTipoMembresia());
+        stmt.setDate(3, dto.getFecha());
         return stmt.executeUpdate()>0;
     }
 
     @Override
     public boolean delete(Object id) throws SQLException {
+        stmt = connection.prepareStatement("call CustomerDelete(?)");
+        stmt.setString(1, String.valueOf(id));
+        return stmt.executeUpdate()>0;
     }
 
 }

@@ -6,18 +6,19 @@ package Model.Inscripcion;
 
 import Model.Asistentes.Asistente;
 import Model.Eventos.Evento;
-import java.time.LocalDate;
+import java.sql.Date;
 
 /**
  *
  * @author Student
  */
-public class Inscripcion {
-   private int id;
-   private Evento evento;
-   private Asistente asistente;
-   private LocalDate fecha;
-   private boolean asistencia;
+public class InscripcionDto {
+
+    private int id;
+    private Evento evento;
+    private Asistente asistente;
+    private Date fecha;
+    private boolean asistencia;
 
     public int getId() {
         return id;
@@ -31,7 +32,7 @@ public class Inscripcion {
         return asistente;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
@@ -39,15 +40,7 @@ public class Inscripcion {
         return asistencia;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
-    public void setAsistencia(boolean asistencia) {
-        this.asistencia = asistencia;
-    }
-
-    public Inscripcion(int id, Evento evento, Asistente asistente, LocalDate fecha, boolean asistencia) {
+    public InscripcionDto(int id, Evento evento, Asistente asistente, Date fecha, boolean asistencia) {
         this.id = id;
         this.evento = evento;
         this.asistente = asistente;
@@ -55,13 +48,11 @@ public class Inscripcion {
         this.asistencia = asistencia;
     }
 
-    public Inscripcion(Evento evento, Asistente asistente, LocalDate fecha, boolean asistencia) {
+    public InscripcionDto(Evento evento, Asistente asistente, Date fecha, boolean asistencia) {
         this.evento = evento;
         this.asistente = asistente;
         this.fecha = fecha;
         this.asistencia = asistencia;
     }
-   
-   
-   
+
 }

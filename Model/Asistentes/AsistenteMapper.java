@@ -14,16 +14,26 @@ public class AsistenteMapper implements Mapper<Asistente, AsistenteDTO> {
 
     @Override
     public AsistenteDTO toDto(Asistente ent) {
-        return new AsistenteDTO(
+
+
+                return new AsistenteDTO(
+
+        
+
                 ent.getCedula(),
                 ent.getNombre(),
                 ent.getTelefono(),
                 ent.getCorreo()
         );
+
+
+
+
     }
 
     @Override
     public Asistente toEntity(AsistenteDTO dto) {
+
         if (dto == null) {
             return null;
         }
@@ -33,6 +43,7 @@ public class AsistenteMapper implements Mapper<Asistente, AsistenteDTO> {
                 dto.getTelefono(),
                 dto.getCorreo()
         );
+
     }
 
 }

@@ -15,7 +15,7 @@ public class Evento {
     private String nombre;
     private LocalDate fecha;
     private String lugar;
-    private static int CAPACIDAD=1000;
+    private int CAPACIDAD=1000;
 
     public int getId() {
         return id;
@@ -33,7 +33,7 @@ public class Evento {
         return lugar;
     }
 
-    public static int getCAPACIDAD() {
+    public  int getCAPACIDAD() {
         return CAPACIDAD;
     }
 
@@ -45,11 +45,12 @@ public class Evento {
         this.lugar = lugar;
     }
 
-    public Evento(int id, String nombre, LocalDate fecha, String lugar) {
+    public Evento(int id, String nombre, LocalDate fecha, String lugar, int CAPACIDAD) {
         this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
         this.lugar = lugar;
+        this.CAPACIDAD=1000;
     }
     
     

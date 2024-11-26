@@ -4,6 +4,7 @@
  */
 package Utils;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -53,5 +54,9 @@ public class UtilDate {
         if(date==null) 
             throw new IllegalArgumentException("La fecha no puede ser nula");
         return date.format(DATE_FORMATTER);
+    }
+
+    public static Date toLocalDate(LocalDate fecha) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

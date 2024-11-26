@@ -19,8 +19,8 @@ public class InscripcionDao extends DaoCRUD<InscripcionDto> {
     public boolean create(InscripcionDto dto) throws SQLException {
         stmt = connection.prepareStatement("call InscripcionCreate(?,?,?,?,?)");
         stmt.setInt(1, dto.getId());
-        stmt.setInt(2, InscripcionDto.getEvento());
-        stmt.setInt(3, dto.getAsistente());
+        stmt.setString(2, dto.getEvento()); //error
+        stmt.setInt(3, dto.getAsistente()); //error
         stmt.setDate(4, dto.getFecha());
         stmt.setBoolean(5, dto.isAsistencia());
         return stmt.executeUpdate() > 0;
